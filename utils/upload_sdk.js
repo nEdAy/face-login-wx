@@ -16,11 +16,6 @@ var cos = new COS({
 });
 
 var uploadFile = function (filePath, callback) {
-    // cos bucket的名字-账号的appid
-    var Bucket = 'face-recognition-1253284991';
-    // cos上传的地区ID
-    var Region = 'ap-beijing';
-
     // 上传文件
     var uploadFile = function (filePath) {
         var fileName = filePath.substr(filePath.lastIndexOf('/') + 1); // 这里指定上传的文件名
@@ -45,8 +40,6 @@ var uploadFile = function (filePath, callback) {
             } else {
                 wx.showToast({title: '请求成功', icon: 'success', duration: 3000});
                 let location = data.Location;
-                console.log(location.substr(0, location.lastIndexOf('/') + 1));
-                console.log(fileName);
                 callback(location.substr(0, location.lastIndexOf('/') + 1), fileName);
             }
         });
