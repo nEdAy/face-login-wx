@@ -114,15 +114,14 @@ Page({
         dataType: 'json',
         success: function (res) {
           console.log(res);
+          var data = res.data;
           if (res.statusCode === 200) {
-            var data = JSON.parse(res.data);
             wx.showToast({
               title: '登录成功',
               icon: 'success',
               duration: 2000
             });
             data.create_date = moment(data.create_time).format('YYYY-MM-DD HH:mm:ss');
-            data.face_url = cfg.BaseURL + data.face_url;
             that.setData({
               userinfo: data
             });
