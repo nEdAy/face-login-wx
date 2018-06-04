@@ -1,6 +1,6 @@
 // pages/add/add.js
 import cfg from "../../utils/config.js";
-import upload from "../../utils/upload.js";
+import upload from "../../utils/upload_sdk.js";
 
 Page({
 
@@ -95,6 +95,9 @@ Page({
       });
       return;
     }
+    wx.showLoading({
+      title: '正在注册',
+    })
     upload(that.data.src, function (prefixCosUrl, fileName) {
       wx.request({
         method: 'POST',
@@ -124,6 +127,9 @@ Page({
               duration: 2000
             });
           }
+        },
+        complete: function () {
+          wx.hideLoading();
         }
       })
     });

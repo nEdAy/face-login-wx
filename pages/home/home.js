@@ -1,7 +1,7 @@
 // pages/home/home.js
 import cfg from "../../utils/config.js";
 import moment from "../../utils/moment.min.js";
-import upload from "../../utils/upload.js";
+import upload from "../../utils/upload_sdk.js";
 
 Page({
 
@@ -95,7 +95,7 @@ Page({
     }
     wx.showLoading({
       title: '正在登录',
-    })
+    });
     this.takePhoto();
   },
 
@@ -158,14 +158,14 @@ Page({
   // 拍照
   takePhoto() {
     let that = this;
-    const ctx = wx.createCameraContext()
+    const ctx = wx.createCameraContext();
     ctx.takePhoto({
       quality: 'high',
       success: (res) => {
         that.setData({
           src: res.tempImagePath,
           isCamera: true
-        })
+        });
         that.requestLogin();
       },
       fail: function (res) {
@@ -186,4 +186,4 @@ Page({
   }
 
 
-})
+});

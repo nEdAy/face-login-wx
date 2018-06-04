@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/home/home",
     "pages/user/user",
-    "pages/add/add"
+    "pages/add/add",
+    "pages/home/home"
   ],
   "window": {
     "backgroundTextStyle": "light",
