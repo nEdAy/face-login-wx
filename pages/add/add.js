@@ -111,7 +111,7 @@ Page({
         dataType: 'json',
         success: function (res) {
           console.log(res);
-          if (res.statusCode == 200) {
+          if (res.statusCode == 201) {
             wx.showToast({
               title: '用户添加成功',
               icon: 'success',
@@ -122,11 +122,18 @@ Page({
             })
           } else {
             wx.showToast({
-              title: res.data,
+              title: res.data.error,
               icon: 'none',
               duration: 2000
             });
           }
+        },
+        fail: function (res) {
+          wx.showToast({
+            title: '用户添加失败',
+            icon: 'none',
+            duration: 2000
+          });
         },
         complete: function () {
           wx.hideLoading();

@@ -87,7 +87,7 @@ Page({
   login(e) {
     if (this.data.username === '') {
       wx.showToast({
-        title: '请输入用户名',
+        title: '请输入用户名,可在用户列表中查询',
         icon: 'none',
         duration: 2000
       });
@@ -105,7 +105,7 @@ Page({
     upload(that.data.src, function (prefixCosUrl, fileName) {
       wx.request({
         method: 'POST',
-        url: cfg.BaseURL + '/v1/login', //仅为示例，非真实的接口地址
+        url: cfg.BaseURL + '/v1/user/login', //仅为示例，非真实的接口地址
         data: {
           'username': that.data.username,
           'prefixCosUrl': prefixCosUrl,
@@ -114,20 +114,19 @@ Page({
         dataType: 'json',
         success: function (res) {
           console.log(res);
-          var data = res.data;
           if (res.statusCode === 200) {
             wx.showToast({
               title: '登录成功',
               icon: 'success',
               duration: 2000
             });
-            data.create_date = moment(data.create_time).format('YYYY-MM-DD HH:mm:ss');
+            res.data.create_time = moment(res.data.create_time).format('YYYY-MM-DD HH:mm:ss');
             that.setData({
-              userinfo: data
+              userinfo: res.data
             });
           } else {
             wx.showToast({
-              title: data,
+              title: res.data.error || '登录请求错误',
               icon: 'none',
               duration: 2000
             });
@@ -183,6 +182,5 @@ Page({
       duration: 2000
     });
   }
-
 
 });

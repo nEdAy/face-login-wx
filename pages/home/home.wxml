@@ -22,7 +22,7 @@
       <view class='l'>
         <view>用户id：{{userinfo.id}}</view>
         <view>用户名：{{userinfo.username}}</view>
-        <view>创建时间：{{userinfo.create_date}}</view>
+        <view>创建时间：{{userinfo.create_time}}</view>
       </view>
 
       <view class='r'>
