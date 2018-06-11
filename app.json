@@ -2,7 +2,8 @@
   "pages": [
     "pages/user/user",
     "pages/add/add",
-    "pages/home/home"
+    "pages/home/home",
+    "pages/record/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -20,6 +21,10 @@
       {
         "pagePath": "pages/user/user",
         "text": "用户列表"
+      },
+      {
+        "pagePath": "pages/record/index",
+        "text": "xxx"
       }
     ]
   }

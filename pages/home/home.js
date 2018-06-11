@@ -158,7 +158,7 @@ Page({
     let that = this;
     const ctx = wx.createCameraContext();
     ctx.takePhoto({
-      quality: 'high',
+      quality: 'normal',
       success: (res) => {
         that.setData({
           src: res.tempImagePath,

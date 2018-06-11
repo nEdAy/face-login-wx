@@ -9,6 +9,7 @@ Page({
    */
   data: {
     isCamera: false,
+    isRecord: false,
     src: '',
     username: '',
     password: ''
@@ -154,7 +155,7 @@ Page({
   takePhoto() {
     const ctx = wx.createCameraContext();
     ctx.takePhoto({
-      quality: 'high',
+      quality: 'normal',
       success: (res) => {
         this.setData({
           src: res.tempImagePath,
