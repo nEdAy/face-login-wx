@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/token/token",
     "pages/user/user",
     "pages/add/add",
     "pages/home/home",
@@ -24,7 +25,11 @@
       },
       {
         "pagePath": "pages/record/index",
-        "text": "xxx"
+        "text": "声纹登录"
+      },
+      {
+        "pagePath": "pages/token/token",
+        "text": "token测试"
       }
     ]
   }

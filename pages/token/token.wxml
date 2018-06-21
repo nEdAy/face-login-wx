@@ -1,0 +1,7 @@
+<!--pages/token/token.wxml-->
+<button open-type="getUserInfo" bindgetuserinfo="onGotUserInfo"> 授权 </button>
+
+<button class="btn-style"  type="default" bindtap="login">登录</button>
+
+<open-data type="userNickName"></open-data>
+<open-data type="userGender" lang="zh_CN"></open-data>
